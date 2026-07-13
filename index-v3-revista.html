@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azenete Carvalho — Revista de Bordo</title>
+<meta name="description" content="Azenete Carvalho, criadora de conteúdo de viagens. Cruzeiros, 100+ países e histórias de cada porto. Contato oficial para parcerias.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --porcelana:#FBFAF7;
+    --espuma:#EFF5F4;
+    --agua:#D8E9EA;
+    --lagoa:#0E6973;
+    --ouro:#B99356;
+    --tinta:#1F3A43;
+    --cinza:#5C7278;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Archivo',sans-serif;
+    background:var(--porcelana);
+    color:var(--tinta);
+    font-weight:300;
+  }
+  ::selection{background:var(--agua);}
+  a:focus-visible{outline:2px solid var(--lagoa);outline-offset:3px;}
+  img{display:block;}
+
+  /* ===== MASTHEAD ===== */
+  .masthead{
+    text-align:center;
+    padding:1.6rem 5vw .9rem;
+    border-bottom:1px solid var(--ouro);
+  }
+  .masthead .edicao{
+    font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--cinza);
+    display:flex;justify-content:space-between;align-items:center;
+    max-width:72rem;margin:0 auto .7rem;
+  }
+  .masthead h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    font-size:clamp(2.4rem,7vw,5.2rem);
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    line-height:.95;
+  }
+  .masthead .lema{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:clamp(.95rem,1.6vw,1.15rem);
+    color:var(--lagoa);
+    margin-top:.4rem;
+  }
+
+  /* ===== CAPA (split) ===== */
+  .capa{
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    min-height:78vh;
+  }
+  .capa-foto{
+    position:relative;
+    overflow:hidden;
+  }
+  .capa-foto img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center 18%;
+    position:absolute;inset:0;
+  }
+  .capa-foto .legenda{
+    position:absolute;left:1.2rem;bottom:1rem;
+    font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;
+    color:#fff;
+    text-shadow:0 1px 8px rgba(20,50,60,.55);
+  }
+  .capa-texto{
+    background:var(--espuma);
+    display:flex;flex-direction:column;justify-content:center;
+    padding:4rem clamp(2rem,5vw,5rem);
+    position:relative;
+  }
+  .capa-texto .eyebrow{
+    font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;
+    color:var(--ouro);
+    margin-bottom:1.4rem;
+  }
+  .capa-texto h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;font-style:italic;
+    font-size:clamp(2.3rem,4.6vw,4rem);
+    line-height:1.06;
+    margin-bottom:1.6rem;
+  }
+  .capa-texto h2 span{
+    font-style:normal;color:var(--lagoa);
+  }
+  .capa-texto p{
+    font-size:1rem;color:var(--cinza);
+    max-width:24rem;line-height:1.7;
+    margin-bottom:2.2rem;
+  }
+  .links-editoriais{display:flex;flex-direction:column;gap:.9rem;}
+  .links-editoriais a{
+    display:inline-flex;align-items:baseline;gap:.7rem;
+    width:fit-content;
+    text-decoration:none;
+    color:var(--tinta);
+    font-size:.8rem;letter-spacing:.26em;text-transform:uppercase;
+    border-bottom:1px solid var(--ouro);
+    padding-bottom:.35rem;
+    transition:color .25s,border-color .25s,gap .25s;
+  }
+  .links-editoriais a::after{
+    content:"→";
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.05rem;
+    color:var(--ouro);
+    transition:transform .25s;
+  }
+  .links-editoriais a:hover{color:var(--lagoa);border-color:var(--lagoa);gap:1.1rem;}
+  .links-editoriais a:hover::after{transform:translateX(4px);}
+
+  /* ===== LETREIRO (marquee) ===== */
+  .letreiro{
+    border-top:1px solid var(--ouro);
+    border-bottom:1px solid var(--ouro);
+    overflow:hidden;
+    padding:.85rem 0;
+    background:var(--porcelana);
+  }
+  .letreiro-faixa{
+    display:flex;width:max-content;
+    animation:navegar 38s linear infinite;
+  }
+  .letreiro span{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.05rem;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--lagoa);
+    padding:0 1.4rem;
+    white-space:nowrap;
+  }
+  .letreiro span i{
+    font-style:normal;color:var(--ouro);
+    padding-left:2.8rem;
+  }
+  @keyframes navegar{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .letreiro-faixa{animation:none;}
+  }
+
+  /* ===== MATÉRIA ===== */
+  .materia{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:clamp(2.5rem,6vw,6rem);
+    max-width:72rem;
+    margin:0 auto;
+    padding:clamp(3rem,7vh,5.5rem) 5vw;
+    align-items:start;
+  }
+  .materia-texto .titulo-secao{
+    font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;
+    color:var(--ouro);
+    margin-bottom:1.6rem;
+  }
+  .materia-texto p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(1.25rem,2vw,1.55rem);
+    line-height:1.6;
+    max-width:34rem;
+    color:var(--tinta);
+  }
+  .materia-texto p::first-letter{
+    font-size:3.4em;
+    float:left;
+    line-height:.82;
+    padding:.06em .12em 0 0;
+    color:var(--lagoa);
+    font-weight:500;
+  }
+  .materia-texto .assine{
+    margin-top:2rem;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:var(--cinza);
+  }
+  /* coluna lateral com números, estilo sumário */
+  .sumario{
+    border-left:1px solid var(--ouro);
+    padding-left:clamp(1.4rem,3vw,2.4rem);
+    display:flex;flex-direction:column;gap:1.8rem;
+    min-width:12rem;
+  }
+  .sumario div strong{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    font-size:2.5rem;
+    color:var(--lagoa);
+    display:block;line-height:1;
+  }
+  .sumario div span{
+    font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--cinza);
+  }
+
+  /* ===== RETRATO + CITAÇÃO ===== */
+  .retrato{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:clamp(2rem,5vw,4.5rem);
+    align-items:center;
+    max-width:72rem;
+    margin:0 auto;
+    padding:0 5vw clamp(3rem,7vh,5.5rem);
+  }
+  .retrato figure{position:relative;}
+  .retrato img{
+    width:clamp(13rem,24vw,19rem);
+    aspect-ratio:3/4;
+    object-fit:cover;object-position:center 12%;
+  }
+  .retrato figcaption{
+    margin-top:.6rem;
+    font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--cinza);
+  }
+  .retrato blockquote{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:clamp(1.7rem,3.4vw,2.7rem);
+    line-height:1.25;
+    color:var(--tinta);
+    max-width:30rem;
+  }
+  .retrato blockquote::before{
+    content:"“";
+    color:var(--ouro);
+    font-size:1.4em;
+    line-height:0;
+    vertical-align:-.28em;
+    padding-right:.08em;
+  }
+  .retrato cite{
+    display:block;
+    margin-top:1.2rem;
+    font-family:'Archivo',sans-serif;
+    font-style:normal;
+    font-size:.66rem;letter-spacing:.38em;text-transform:uppercase;
+    color:var(--lagoa);
+  }
+
+  /* ===== EXPEDIENTE (contatos) ===== */
+  .expediente{
+    background:var(--espuma);
+    border-top:1px solid var(--ouro);
+    padding:clamp(3rem,7vh,4.5rem) 5vw;
+  }
+  .expediente-inner{
+    max-width:72rem;margin:0 auto;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:clamp(2.5rem,6vw,6rem);
+    align-items:start;
+  }
+  .expediente h3{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    font-size:clamp(1.7rem,3vw,2.4rem);
+    text-transform:uppercase;letter-spacing:.14em;
+    line-height:1.1;
+  }
+  .expediente h3 small{
+    display:block;
+    font-family:'Archivo',sans-serif;
+    font-weight:300;
+    font-size:.62rem;letter-spacing:.4em;
+    color:var(--ouro);
+    margin-top:.5rem;
+  }
+  .creditos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));
+    gap:1.8rem 3rem;
+  }
+  .creditos dt{
+    font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--cinza);
+    margin-bottom:.45rem;
+  }
+  .creditos dd a{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.25rem;
+    color:var(--tinta);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:color .25s,border-color .25s;
+    overflow-wrap:anywhere;
+  }
+  .creditos dd a:hover{color:var(--lagoa);border-color:var(--ouro);}
+  .aviso-oficial{
+    grid-column:1/-1;
+    margin-top:.6rem;
+    padding-top:1.4rem;
+    border-top:1px solid rgba(185,147,86,.4);
+    font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--cinza);
+  }
+  .aviso-oficial b{color:var(--tinta);font-weight:500;}
+
+  footer{
+    text-align:center;
+    padding:1.1rem 5vw;
+    font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--cinza);
+  }
+
+  /* ===== ANIMAÇÃO DE ENTRADA ===== */
+  @media (prefers-reduced-motion:no-preference){
+    .masthead,.capa-texto>*{animation:folha .8s ease both;}
+    .capa-texto .eyebrow{animation-delay:.1s;}
+    .capa-texto h2{animation-delay:.18s;}
+    .capa-texto p{animation-delay:.26s;}
+    .capa-texto .links-editoriais{animation-delay:.34s;}
+    @keyframes folha{
+      from{opacity:0;transform:translateY(14px);}
+      to{opacity:1;transform:none;}
+    }
+  }
+
+  /* ===== RESPONSIVO ===== */
+  @media (max-width:860px){
+    .masthead .edicao{flex-direction:column;gap:.3rem;}
+    .capa{grid-template-columns:1fr;min-height:unset;}
+    .capa-foto{height:56vh;position:relative;}
+    .capa-texto{padding:2.6rem 7vw 3rem;}
+    .materia{grid-template-columns:1fr;gap:2.2rem;}
+    .sumario{
+      border-left:none;border-top:1px solid var(--ouro);
+      padding:1.6rem 0 0;
+      flex-direction:row;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;
+    }
+    .retrato{grid-template-columns:1fr;justify-items:center;text-align:center;}
+    .retrato blockquote{max-width:100%;}
+    .expediente-inner{grid-template-columns:1fr;gap:2rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="edicao">
+    <span>Edição contínua</span>
+    <span>São Paulo · Alto-mar</span>
+    <span>Desde 100+ países</span>
+  </div>
+  <h1>Azenete Carvalho</h1>
+  <p class="lema">revista de bordo de uma vida em viagem</p>
+</header>
+
+<section class="capa">
+  <div class="capa-foto">
+    <img src="azenete-navio.jpg" alt="Azenete Carvalho no porto, em frente a um navio de cruzeiro">
+    <span class="legenda">A bordo — embarque no MSC, temporada 2026</span>
+  </div>
+  <div class="capa-texto">
+    <span class="eyebrow">Nesta edição</span>
+    <h2>A vida é melhor <span>vista do mar</span></h2>
+    <p>Cruzeiros pelo mundo, portos que viram histórias e a prova diária de que viajar não tem idade.</p>
+    <nav class="links-editoriais" aria-label="Links principais">
+      <a href="https://www.instagram.com/azenete.carvalho" target="_blank" rel="noopener">Seguir no Instagram</a>
+      <a href="mailto:contato@azenetecarvalho.com.br">Propostas &amp; parcerias</a>
+    </nav>
+  </div>
+</section>
+
+<div class="letreiro" aria-hidden="true">
+  <div class="letreiro-faixa">
+    <span>Mediterrâneo<i>·</i></span><span>Caribe<i>·</i></span><span>Fiordes<i>·</i></span><span>Volta ao mundo<i>·</i></span><span>100+ países<i>·</i></span><span>Alto-mar<i>·</i></span>
+    <span>Mediterrâneo<i>·</i></span><span>Caribe<i>·</i></span><span>Fiordes<i>·</i></span><span>Volta ao mundo<i>·</i></span><span>100+ países<i>·</i></span><span>Alto-mar<i>·</i></span>
+  </div>
+</div>
+
+<section class="materia">
+  <div class="materia-texto">
+    <p class="titulo-secao" role="heading" aria-level="2">Carta da editora</p>
+    <p>De São Paulo para os sete mares: décadas de viagens, uma volta ao mundo em cruzeiro e milhares de leitores que embarcam junto, todos os dias, pelo Instagram — entre dicas de embarque, a vida a bordo e a descoberta de cada porto.</p>
+    <p class="assine">— com bom humor, sempre.</p>
+  </div>
+  <aside class="sumario" aria-label="Em números">
+    <div><strong>100+</strong><span>países</span></div>
+    <div><strong>104 mil</strong><span>leitores a bordo</span></div>
+    <div><strong>7</strong><span>mares navegados</span></div>
+  </aside>
+</section>
+
+<section class="retrato">
+  <figure>
+    <img src="azenete-retrato.png" alt="Retrato de Azenete Carvalho durante cruzeiro de volta ao mundo">
+    <figcaption>World Cruise — noite de gala</figcaption>
+  </figure>
+  <blockquote>
+    Viajar não tem idade. Tem vontade.
+    <cite>Azenete Carvalho</cite>
+  </blockquote>
+</section>
+
+<section class="expediente" id="contato">
+  <div class="expediente-inner">
+    <h3>Expediente<small>canais oficiais</small></h3>
+    <dl class="creditos">
+      <div>
+        <dt>Direção &amp; conteúdo</dt>
+        <dd><a href="https://www.instagram.com/azenete.carvalho" target="_blank" rel="noopener">@azenete.carvalho</a></dd>
+      </div>
+      <div>
+        <dt>Parcerias &amp; imprensa</dt>
+        <dd><a href="mailto:contato@azenetecarvalho.com.br">contato@azenetecarvalho.com.br</a></dd>
+      </div>
+      <div>
+        <dt>Comunidade</dt>
+        <dd><a href="https://www.facebook.com/share/17AZVRUCJy/" target="_blank" rel="noopener">Facebook oficial</a></dd>
+      </div>
+      <p class="aviso-oficial"><b>Estes são os únicos canais oficiais.</b> Propostas em nome de Azenete Carvalho fora destes contatos não são autorizadas.</p>
+    </dl>
+  </div>
+</section>
+
+<footer>© 2026 Azenete Carvalho — azenetecarvalho.com.br</footer>
+
+</body>
+</html>
