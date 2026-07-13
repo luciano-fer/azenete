@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Azenete Carvalho — Cruzeiros &amp; Viagens</title>
+<title>Dona Azenete - Cruzeiros &amp; Viagens</title>
 <meta name="description" content="Azenete Carvalho, criadora de conteúdo de viagens. Canais oficiais de contato.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -172,6 +172,87 @@
     @keyframes chegar{from{opacity:0;transform:translateY(22px) scale(.985);}to{opacity:1;transform:none;}}
   }
 
+  /* ===== MODAL (checkbox hack, sem JS) ===== */
+  .modal-chave{position:absolute;opacity:0;pointer-events:none;}
+  .modal-fundo{
+    position:fixed;inset:0;z-index:60;
+    display:grid;place-items:center;
+    padding:1rem;
+    background:rgba(11,53,82,.45);
+    backdrop-filter:blur(7px);
+    opacity:0;visibility:hidden;
+    transition:opacity .3s,visibility .3s;
+  }
+  .modal-chave:checked ~ .modal-fundo{opacity:1;visibility:visible;}
+  .modal-fechar-area{position:absolute;inset:0;cursor:pointer;}
+  .modal{
+    position:relative;
+    width:min(26rem,100%);
+    max-height:92svh;
+    overflow:auto;
+    background:linear-gradient(180deg,#FFFFFF,#F7FBFE);
+    border-radius:26px;
+    padding:1.8rem 1.7rem 1.7rem;
+    box-shadow:0 30px 70px rgba(11,53,82,.35),inset 0 2px 0 rgba(255,255,255,.9);
+    transform:translateY(16px) scale(.97);
+    transition:transform .3s cubic-bezier(.2,.7,.3,1);
+  }
+  .modal-chave:checked ~ .modal-fundo .modal{transform:none;}
+  .modal-x{
+    position:absolute;top:.9rem;right:.9rem;
+    width:2.1rem;height:2.1rem;
+    display:grid;place-items:center;
+    border-radius:50%;
+    background:var(--ceu);
+    color:var(--suave);
+    font-size:.95rem;font-weight:700;
+    cursor:pointer;
+    transition:background .2s,color .2s;
+  }
+  .modal-x:hover{background:#FFE3EA;color:var(--rosa);}
+  .modal h2{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;font-size:1.45rem;letter-spacing:-.01em;
+  }
+  .modal-sub{font-size:.86rem;color:var(--suave);margin:.3rem 0 1.2rem;}
+  .campo{margin-bottom:.9rem;}
+  .campo label{
+    display:block;
+    font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--suave);
+    margin-bottom:.35rem;
+  }
+  .campo input,.campo textarea{
+    width:100%;
+    font-family:'Figtree',sans-serif;font-size:.95rem;
+    color:var(--tinta);
+    background:var(--branco);
+    border:1.5px solid #DCEBF4;
+    border-radius:14px;
+    padding:.75rem .9rem;
+    transition:border-color .2s,box-shadow .2s;
+    resize:vertical;
+  }
+  .campo input:focus,.campo textarea:focus{
+    outline:none;
+    border-color:var(--turquesa);
+    box-shadow:0 0 0 4px rgba(18,181,201,.18);
+  }
+  .enviar{
+    width:100%;
+    font-family:'Figtree',sans-serif;
+    font-weight:700;font-size:1rem;
+    color:var(--branco);
+    background:linear-gradient(90deg,var(--coral),var(--rosa));
+    border:none;border-radius:999px;
+    padding:.95rem;
+    cursor:pointer;
+    box-shadow:0 12px 26px rgba(244,67,122,.4);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .enviar:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(244,67,122,.5);}
+  .acao.mail{cursor:pointer;}
+
   /* ===== mobile: foto no topo, tudo numa tela ===== */
   @media (max-width:700px){
     body{padding:.7rem;}
@@ -201,17 +282,17 @@
   <section class="info">
     <span class="ola"><span class="grad">Viajando e colecionando momentos</span> 🌎✨</span>
     <h1>Azenete Carvalho</h1>
-    <p class="frase">Criadora de conteúdo de viagens. <b>Viajar não tem idade — tem vontade.</b></p>
+    <p class="frase">Criadora de conteúdo de viagens. <b>Viajar não tem idade - tem vontade.</b></p>
 
     <nav class="acoes" aria-label="Contatos oficiais">
       <a class="acao insta" href="https://www.instagram.com/azenete.carvalho" target="_blank" rel="noopener">
         <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 3.6a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8zm0 2a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm5.6-2.5a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg></span>
-        <span>@azenete.carvalho<small>Instagram — conteúdo diário</small></span>
+        <span>@azenete.carvalho<small>Instagram - conteúdo diário</small></span>
       </a>
-      <a class="acao mail" href="mailto:contato@azenetecarvalho.com.br">
+      <label class="acao mail" for="abrir-contato" role="button" tabindex="0">
         <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.5l-8 5-8-5V6h16zM4 18V8.9l7.5 4.7c.3.2.7.2 1 0L20 8.9V18H4z"/></svg></span>
-        <span>contato@azenetecarvalho.com.br<small>Parcerias &amp; imprensa</small></span>
-      </a>
+        <span>Enviar mensagem<small>Parcerias &amp; imprensa - contato@azenetecarvalho.com.br</small></span>
+      </label>
       <a class="acao face" href="https://www.facebook.com/share/17AZVRUCJy/" target="_blank" rel="noopener">
         <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></span>
         <span>Facebook<small>Comunidade oficial</small></span>
@@ -223,9 +304,39 @@
 
   <figure class="foto">
     <img src="azenete.jpg" alt="Azenete Carvalho de azul na popa do navio, com a esteira do cruzeiro ao fundo">
-    <figcaption class="badge">Vista no Mais Você · Globo</figcaption>
+    <figcaption class="badge">Sempre em busca de novas aventuras</figcaption>
   </figure>
 </main>
+
+<!-- ===== MODAL DE CONTATO (só HTML/CSS via checkbox) ===== -->
+<input type="checkbox" id="abrir-contato" class="modal-chave" aria-hidden="true">
+<div class="modal-fundo" aria-hidden="true">
+  <label for="abrir-contato" class="modal-fechar-area" aria-label="Fechar formulário"></label>
+  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-form">
+    <label for="abrir-contato" class="modal-x" role="button" tabindex="0" aria-label="Fechar">✕</label>
+    <h2 id="titulo-form">Fale com a Azenete</h2>
+    <p class="modal-sub">Parcerias, imprensa e convites — respondemos pelo e-mail oficial.</p>
+    <form action="https://formsubmit.co/contato@azenetecarvalho.com.br" method="POST">
+      <input type="hidden" name="_subject" value="Contato pelo site — azenetecarvalho.com.br">
+      <input type="hidden" name="_next" value="https://www.azenetecarvalho.com.br/">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="campo">
+        <label for="f-nome">Seu nome</label>
+        <input id="f-nome" type="text" name="nome" required autocomplete="name" placeholder="Como podemos te chamar?">
+      </div>
+      <div class="campo">
+        <label for="f-email">Seu e-mail</label>
+        <input id="f-email" type="email" name="email" required autocomplete="email" placeholder="voce@empresa.com.br">
+      </div>
+      <div class="campo">
+        <label for="f-msg">Mensagem</label>
+        <textarea id="f-msg" name="mensagem" rows="4" required placeholder="Conte sua proposta ou convite…"></textarea>
+      </div>
+      <button class="enviar" type="submit">Enviar mensagem ✈️</button>
+    </form>
+  </section>
+</div>
 
 </body>
 </html>
