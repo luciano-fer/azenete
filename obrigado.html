@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mensagem enviada — Azenete Carvalho</title>
+<meta name="robots" content="noindex">
+<!-- volta pra home automaticamente após 10s -->
+<meta http-equiv="refresh" content="10;url=https://www.azenetecarvalho.com.br/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌎</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turquesa:#12B5C9; --azul:#0A6ECD; --coral:#FF6B57; --rosa:#F4437A;
+    --sol:#FFB648; --tinta:#0B3552; --suave:#4A6E86; --branco:#FFFFFF;
+  }
+  /* habilita animar um número inteiro em CSS puro */
+  @property --seg{ syntax:'<integer>'; initial-value:10; inherits:false; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'Figtree',sans-serif; color:var(--tinta);
+    background:
+      radial-gradient(42rem 26rem at 6% 10%,rgba(255,182,72,.4) 0%,transparent 62%),
+      radial-gradient(46rem 28rem at 94% 6%,rgba(18,181,201,.38) 0%,transparent 62%),
+      radial-gradient(44rem 28rem at 88% 94%,rgba(244,67,122,.32) 0%,transparent 62%),
+      radial-gradient(40rem 24rem at 8% 92%,rgba(10,110,205,.3) 0%,transparent 62%),
+      #FDFBF8;
+    display:grid; place-items:center; padding:1rem; overflow:hidden;
+  }
+  .cartao{
+    width:min(30rem,100%); text-align:center;
+    background:linear-gradient(180deg,#FFFFFF,#FBFDFE);
+    border-radius:30px; padding:2.6rem 2rem;
+    box-shadow:0 34px 80px rgba(11,78,143,.22),inset 0 2px 0 rgba(255,255,255,.9);
+    animation:chegar .7s cubic-bezier(.2,.7,.3,1) both;
+  }
+  @keyframes chegar{from{opacity:0;transform:translateY(20px) scale(.98);}to{opacity:1;transform:none;}}
+  .check{
+    width:5rem;height:5rem;margin:0 auto 1.4rem;border-radius:50%;
+    background:linear-gradient(135deg,var(--turquesa),var(--azul));
+    display:grid;place-items:center;
+    box-shadow:0 12px 26px rgba(10,110,205,.4);
+    animation:pulso .6s .2s both;
+  }
+  @keyframes pulso{from{transform:scale(0);}60%{transform:scale(1.12);}to{transform:scale(1);}}
+  .check svg{width:2.4rem;height:2.4rem;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+  h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:-.01em;margin-bottom:.6rem;}
+  p{color:var(--suave);font-size:1rem;line-height:1.5;max-width:22rem;margin:0 auto 1.8rem;}
+  .voltar{
+    display:inline-block;text-decoration:none;
+    font-family:'Figtree',sans-serif;font-weight:700;font-size:1rem;color:var(--branco);
+    background:linear-gradient(90deg,var(--coral),var(--rosa));
+    border:none;border-radius:999px;padding:.9rem 1.8rem;cursor:pointer;
+    box-shadow:0 12px 26px rgba(244,67,122,.4);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .voltar:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(244,67,122,.5);}
+  /* contagem regressiva 100% CSS */
+  .voltar .seg{ counter-reset:s var(--seg); animation:conta 10s steps(10) forwards; }
+  .voltar .seg::after{ content:" (" counter(s) "s)"; }
+  @keyframes conta{ to{ --seg:0; } }
+</style>
+</head>
+<body>
+  <main class="cartao" role="alert">
+    <div class="check">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5 11-11"/></svg>
+    </div>
+    <h1>Obrigado por entrar em contato! 💙</h1>
+    <p>Recebemos a sua mensagem e retornaremos em até <b>1 dia útil</b> pelo e-mail oficial.</p>
+    <a class="voltar" href="https://www.azenetecarvalho.com.br/">Voltar ao início<span class="seg"></span></a>
+  </main>
+</body>
+</html>
