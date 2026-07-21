@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Painel privado — não indexar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ceu:#EFF8FD; --turquesa:#12B5C9; --azul:#0A6ECD;
+    --coral:#FF6B57; --rosa:#F4437A; --sol:#FFB648;
+    --tinta:#0B3552; --suave:#4A6E86; --branco:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Figtree',sans-serif;color:var(--tinta);
+    background:
+      radial-gradient(42rem 26rem at 6% 10%,rgba(255,182,72,.35) 0%,transparent 62%),
+      radial-gradient(46rem 28rem at 94% 6%,rgba(18,181,201,.32) 0%,transparent 62%),
+      radial-gradient(44rem 28rem at 88% 94%,rgba(244,67,122,.26) 0%,transparent 62%),
+      #FDFBF8;
+    min-height:100svh;
+    display:grid;place-items:center;
+    padding:1.5rem;
+  }
+  .painel{
+    width:min(34rem,100%);
+    background:linear-gradient(180deg,#FFFFFF,#FBFDFE);
+    border-radius:26px;
+    padding:2rem clamp(1.4rem,4vw,2.4rem) 2.2rem;
+    box-shadow:0 26px 60px rgba(11,78,143,.18),inset 0 2px 0 rgba(255,255,255,.9);
+  }
+  .painel .rotulo{
+    font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--suave);
+  }
+  .painel h1{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;font-size:1.7rem;
+    margin:.25rem 0 1.5rem;
+  }
+  .cartoes{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.6rem;}
+  .cartao{
+    background:var(--ceu);
+    border-radius:18px;
+    padding:1.3rem 1.1rem;
+    text-align:center;
+  }
+  .cartao .num-wrap{
+    display:flex;justify-content:center;
+    min-height:2.2rem;
+  }
+  .cartao img{height:2.1rem;}
+  .cartao span{
+    display:block;margin-top:.6rem;
+    font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--suave);
+  }
+  .grafico{
+    display:block;width:100%;border-radius:14px;overflow:hidden;
+    border:1px solid #E4EFF6;
+  }
+  .grafico img{width:100%;display:block;}
+  .aviso{
+    margin-top:1.4rem;
+    font-size:.78rem;color:var(--suave);
+    line-height:1.5;
+  }
+  .aviso a{color:var(--azul);}
+  .atualizar{
+    display:inline-flex;align-items:center;gap:.5rem;
+    margin-top:1rem;
+    text-decoration:none;
+    font-weight:700;font-size:.85rem;
+    color:var(--branco);
+    background:linear-gradient(90deg,var(--azul),var(--turquesa));
+    padding:.65rem 1.2rem;border-radius:999px;
+  }
+</style>
+</head>
+<body>
+
+<main class="painel">
+  <span class="rotulo">Painel privado</span>
+  <h1>Acessos do site</h1>
+
+  <div class="cartoes">
+    <div class="cartao">
+      <div class="num-wrap"><img src="https://hits.sh/azenete-bordo-efe7bfa5.svg?view=today-total&style=flat-square&label=&color=12B5C9&labelColor=FFFFFF" alt="Acessos hoje"></div>
+      <span>Hoje</span>
+    </div>
+    <div class="cartao">
+      <div class="num-wrap"><img src="https://hits.sh/azenete-bordo-efe7bfa5.svg?style=flat-square&label=&color=0A6ECD&labelColor=FFFFFF" alt="Acessos totais"></div>
+      <span>Total (desde o início)</span>
+    </div>
+  </div>
+
+  <a class="grafico" href="https://hits.sh/azenete-bordo-efe7bfa5/" target="_blank" rel="noopener">
+    <img src="https://hits.sh/azenete-bordo-efe7bfa5.svg?view=today-total&style=for-the-badge&label=ver+historico+completo&color=FF6B57&labelColor=0B3552" alt="Ver histórico completo no Hits.sh">
+  </a>
+
+  <p class="aviso">
+    Os números vêm do <a href="https://hits.sh" target="_blank" rel="noopener">Hits.sh</a> e contam cada carregamento de página (não visitantes únicos). Esta página não tem link em nenhum lugar do site — guarde o endereço para consultar quando quiser. Se os números parecerem desatualizados, force um recarregamento (Ctrl+Shift+R).
+  </p>
+</main>
+
+</body>
+</html>
