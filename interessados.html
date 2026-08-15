@@ -17,8 +17,8 @@ a:hover{color:#9c6c00}
 </helmet>
 <div style="display:flex;min-height:100vh;background:#f7f6f3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#101012">
   <aside style="width:264px;flex:none;display:flex;flex-direction:column;min-height:100vh;padding:32px 20px 24px;background:#ffffff;border-right:1px solid #e4e3df">
-    <div style="display:flex;align-items:center;padding:0 4px 34px">
-      <img src="saatch-logo-color.png" alt="Saatch Turismo" style="width:148px;height:auto;object-fit:contain">
+    <div style="display:flex;align-items:center;justify-content:center;padding:0 4px 26px">
+      <img src="saatch-logo.jpeg" alt="Saatch Turismo e Experiências" style="width:100%;max-width:210px;height:auto;object-fit:contain">
     </div>
     <div style="display:flex;align-items:center;gap:9px;padding:13px 14px;margin-bottom:34px;border-radius:14px;background:#f4b731;font-size:13px;font-weight:700;color:#101012">
       <span style="width:7px;height:7px;border-radius:50%;background:#101012"></span>Saatch Turismo<span style="margin-left:auto;opacity:.55">⌄</span>
@@ -30,6 +30,7 @@ a:hover{color:#9c6c00}
       <p style="margin:26px 0 10px;padding:0 12px;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#8a8a8f">Organizar</p>
       <button onClick="{{goPublications}}" style="{{styleNavPublicacoes}}"><span style="font-size:17px;width:20px">▧</span>Publicações</button>
       <button onClick="{{goKeywords}}" style="{{styleNavPalavras}}"><span style="font-size:17px;width:20px">⌁</span>Palavras-chave</button>
+      <button onClick="{{goClassification}}" style="{{styleNavClassificacao}}"><span style="font-size:17px;width:20px">☑</span>Classificação<sc-if value="{{waitingCount}}" hint-placeholder-val="{{0}}"><em style="margin-left:auto;padding:4px 8px;border-radius:20px;background:#f4b731;color:#101012;font-size:11px;font-weight:800">{{waitingCount}}</em></sc-if></button>
       <div style="margin-top:20px;border-radius:18px;overflow:hidden;background:#101012">
         <img src="azenete_interessados.png" alt="Dona Azenete" style="width:100%;height:210px;object-fit:cover;object-position:top center;display:block">
         <div style="padding:14px 16px">
@@ -62,7 +63,7 @@ a:hover{color:#9c6c00}
         <section>
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:40px;min-height:170px">
             <div>
-              <p style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a8a8f">QUARTA-FEIRA, 12 DE AGOSTO</p>
+              <p style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a8a8f">{{todayLabel}}</p>
               <h1 style="margin:0 0 16px;font-size:52px;font-weight:800;letter-spacing:-1.5px;line-height:1.06;color:#101012">Os comentários certos<br><span style="color:#c9860a">chegaram.</span></h1>
               <p style="margin:0;font-size:16px;line-height:1.65;color:#55565c;max-width:480px">Uma visão rápida de quem demonstrou interesse<br>nas próximas experiências da Saatch.</p>
             </div>
@@ -251,7 +252,7 @@ a:hover{color:#9c6c00}
                 <textarea placeholder="Ex.: pediu valores para duas pessoas e prefere saída em outubro..." style="display:block;width:100%;margin-top:8px;min-height:110px;border-radius:12px;border:1px solid #e4e3df;padding:12px 14px;font-size:14px;color:#101012;font-family:inherit;resize:vertical"></textarea>
               </label>
               <label style="display:block;margin-bottom:26px;font-size:13px;font-weight:700;color:#101012">Registrado por
-                <div style="margin-top:8px;height:46px;display:flex;align-items:center;padding:0 14px;border-radius:12px;background:#f7f6f3;border:1px solid #e4e3df;font-size:14px;color:#55565c">Azenete Carvalho <small style="margin-left:8px;color:#8a8a8f;font-weight:400">automático pelo login</small></div>
+                <div style="margin-top:8px;height:46px;display:flex;align-items:center;padding:0 14px;border-radius:12px;background:#f7f6f3;border:1px solid #e4e3df;font-size:14px;color:#55565c">Azenete Freire <small style="margin-left:8px;color:#8a8a8f;font-weight:400">automático pelo login</small></div>
               </label>
               <div style="display:flex;gap:12px;justify-content:flex-end">
                 <button onClick="{{goDetail}}" style="background:none;border:none;color:#55565c;font-size:13.5px;font-weight:700;cursor:pointer;padding:14px 6px">Cancelar</button>
@@ -318,6 +319,65 @@ a:hover{color:#9c6c00}
         </section>
       </sc-if>
 
+      <sc-if value="{{isClassification}}" hint-placeholder-val="{{false}}">
+        <section>
+          <div style="margin-bottom:32px">
+            <p style="margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#8a8a8f">REVISÃO HUMANA</p>
+            <h1 style="margin:0 0 12px;font-size:44px;font-weight:800;letter-spacing:-1px;color:#101012">Classificação de interessados</h1>
+            <p style="margin:0;font-size:15px;color:#55565c;max-width:620px">O classificador automático marca comentários como possível interesse. Confirme ou descarte cada um — a decisão é por comentário, não por pessoa.</p>
+          </div>
+          <section style="background:#fff;border:1px solid #e4e3df;border-radius:22px;padding:28px 26px 18px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:14px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <label style="display:inline-flex;padding:7px 12px;border-radius:20px;font-size:11px;font-weight:700;background:#fdecc2;color:#9c6c00;border:1px solid #f4b731">{{waitingLabel}}</label>
+              </div>
+              <button onClick="{{toggleDiscarded}}" style="height:40px;padding:0 16px;border-radius:12px;border:1px solid #e4e3df;background:#f7f6f3;color:#55565c;font-size:13px;font-weight:700;cursor:pointer">{{discardedBtnLabel}}</button>
+            </div>
+
+            <sc-if value="{{showDiscarded}}" hint-placeholder-val="{{false}}">
+              <div style="background:#f7f6f3;border:1px solid #ececea;border-radius:16px;padding:18px 18px 6px;margin-bottom:22px">
+                <p style="margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.6px;color:#8a8a8f;text-transform:uppercase">Descartados ({{discardedCount}})</p>
+                <sc-if value="{{hasNoDiscarded}}" hint-placeholder-val="{{true}}">
+                  <p style="margin:0 0 14px;font-size:13px;color:#8a8a8f">Nenhum comentário descartado ainda.</p>
+                </sc-if>
+                <sc-for list="{{discardedItems}}" as="item" hint-placeholder-count="0">
+                  <div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid #e4e3df">
+                    <div style="flex:1">
+                      <strong style="display:block;font-size:13.5px;font-weight:700;color:#101012">{{item.user}}</strong>
+                      <p style="margin:4px 0 0;font-size:13px;color:#55565c;line-height:1.45">"{{item.comment}}"</p>
+                      <small style="display:block;margin-top:4px;font-size:11px;color:#8a8a8f">Descartado por {{item.reviewedBy}} · {{item.reviewedAt}}</small>
+                    </div>
+                    <button onClick="{{item.restore}}" style="flex:none;height:36px;padding:0 14px;border-radius:10px;border:1px solid #101012;background:#fff;color:#101012;font-size:12.5px;font-weight:700;cursor:pointer">Restaurar</button>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <div style="display:grid;grid-template-columns:1.2fr 1.8fr 1fr 1.7fr;gap:16px;padding:0 12px 12px;font-size:11px;font-weight:700;letter-spacing:.6px;color:#8a8a8f;border-bottom:1px solid #ececea">
+              <span>INTERESSADO</span><span>COMENTÁRIO CAPTURADO</span><span>CONTEXTO</span><span>REVISÃO</span>
+            </div>
+            <sc-for list="{{visibleItems}}" as="item" hint-placeholder-count="5">
+              <div style="display:grid;grid-template-columns:1.2fr 1.8fr 1fr 1.7fr;gap:16px;align-items:center;padding:18px 12px;border-bottom:1px solid #ececea;opacity:{{item.rowOpacity}};transform:{{item.rowTransform}};transition:opacity .28s ease, transform .28s ease">
+                <div><strong style="display:block;font-size:14px;font-weight:700;color:#101012">{{item.user}}</strong></div>
+                <p style="margin:0;font-size:14px;color:#33343a;line-height:1.5">"{{item.comment}}"</p>
+                <span><strong style="display:block;font-size:13.5px;font-weight:700;color:#101012">{{item.context}}</strong></span>
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                  <sc-if value="{{item.isConfirmed}}" hint-placeholder-val="{{false}}">
+                    <label style="display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border-radius:20px;font-size:11px;font-weight:700;background:#101012;color:#fff">✓ Confirmado</label>
+                    <small style="font-size:10.5px;color:#8a8a8f">por {{item.reviewedBy}}</small>
+                  </sc-if>
+                  <sc-if value="{{item.isPending}}" hint-placeholder-val="{{true}}">
+                    <button onClick="{{item.confirm}}" style="height:32px;padding:0 12px;border-radius:10px;border:1px solid #b7d9b0;background:#f1f9ee;color:#3a7a2c;font-size:12px;font-weight:700;cursor:pointer">✓ É interesse</button>
+                    <button onClick="{{item.discard}}" style="height:32px;padding:0 12px;border-radius:10px;border:1px solid #e6c2c2;background:#fbf1f1;color:#a13a3a;font-size:12px;font-weight:700;cursor:pointer">✕ Não é</button>
+                  </sc-if>
+                  <button onClick="{{goDetail}}" style="width:32px;height:32px;flex:none;border-radius:10px;border:1px solid #e4e3df;background:#f7f6f3;color:#101012;font-size:14px;cursor:pointer">↗</button>
+                </div>
+              </div>
+            </sc-for>
+          </section>
+        </section>
+      </sc-if>
+
       <sc-if value="{{isPublications}}" hint-placeholder-val="{{false}}">
         <section>
           <div style="margin-bottom:32px">
@@ -357,7 +417,42 @@ a:hover{color:#9c6c00}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { page: 'dashboard', contactDone: true };
+  state = {
+    page: 'dashboard',
+    contactDone: true,
+    showDiscarded: false,
+    reviewItems: [
+      { id: 1, user: '@maria.jose.matos123', comment: 'ok, eu quero, mas quanto será que custa esses 5 dias, incluindo avião e estadia?', context: 'Iberostar Bahia', classification: 'interesse', review: null, reviewedBy: null, reviewedAt: null, removing: false },
+      { id: 2, user: '@louorganizer', comment: 'Poderia enviar os preços?', context: 'MSC Divina', classification: 'interesse', review: null, reviewedBy: null, reviewedAt: null, removing: false },
+      { id: 3, user: '@laura.gomes.75470316', comment: 'Quero conhecer esse resort, ótima oportunidade de conhecer outros países por um preço melhor', context: 'World Cruise', classification: 'interesse', review: null, reviewedBy: null, reviewedAt: null, removing: false },
+      { id: 4, user: '@alessandra_arosa', comment: 'Já quero ir conhecer o Iberostar', context: 'Iberostar', classification: 'interesse', review: null, reviewedBy: null, reviewedAt: null, removing: false },
+      { id: 5, user: '@valescabrasilirala', comment: 'Eu quero essa cinturinha e essas pernas que nem as dela', context: 'post aleatório', classification: 'interesse', review: null, reviewedBy: null, reviewedAt: null, removing: false },
+    ],
+  };
+
+  reviewerName() { return 'Azenete Freire'; }
+  nowStamp() { return 'Hoje, 09:42'; }
+
+  confirmItem(id) {
+    this.setState(s => ({
+      reviewItems: s.reviewItems.map(it => it.id === id ? { ...it, review: 'confirmed', reviewedBy: this.reviewerName(), reviewedAt: this.nowStamp() } : it),
+    }));
+  }
+
+  discardItem(id) {
+    this.setState(s => ({ reviewItems: s.reviewItems.map(it => it.id === id ? { ...it, removing: true } : it) }));
+    setTimeout(() => {
+      this.setState(s => ({
+        reviewItems: s.reviewItems.map(it => it.id === id ? { ...it, review: 'discarded', reviewedBy: this.reviewerName(), reviewedAt: this.nowStamp(), removing: false } : it),
+      }));
+    }, 280);
+  }
+
+  restoreItem(id) {
+    this.setState(s => ({ reviewItems: s.reviewItems.map(it => it.id === id ? { ...it, review: null, reviewedBy: null, reviewedAt: null } : it) }));
+  }
+
+  toggleDiscarded() { this.setState(s => ({ showDiscarded: !s.showDiscarded })); }
 
   navBtn(active) {
     return `display:flex;align-items:center;gap:12px;width:100%;height:46px;margin:2px 0;padding:0 14px;border:1px solid ${active ? '#101012' : 'transparent'};border-radius:12px;background:${active ? '#101012' : 'transparent'};color:${active ? '#fff' : '#55565c'};font-size:14px;font-weight:700;cursor:pointer;text-align:left`;
@@ -369,7 +464,24 @@ class Component extends DCLogic {
     const navContatos = page === 'contact';
     const navPublicacoes = page === 'publications';
     const navPalavras = page === 'keywords';
-    const titles = { dashboard: 'Interessados', detail: 'Marina Costa', contact: 'Registrar contato', keywords: 'Palavras-chave', publications: 'Publicações e roteiros' };
+    const navClassificacao = page === 'classification';
+    const titles = { dashboard: 'Interessados', detail: 'Marina Costa', contact: 'Registrar contato', keywords: 'Palavras-chave', publications: 'Publicações e roteiros', classification: 'Classificação de interessados' };
+
+    const items = this.state.reviewItems;
+    const visible = items.filter(it => it.classification === 'interesse' && it.review !== 'discarded');
+    const waitingCount = visible.filter(it => !it.review).length;
+    const discarded = items.filter(it => it.review === 'discarded');
+
+    const visibleItems = visible.map(it => ({
+      ...it,
+      isConfirmed: it.review === 'confirmed',
+      isPending: !it.review,
+      rowOpacity: it.removing ? 0 : 1,
+      rowTransform: it.removing ? 'translateX(12px)' : 'translateX(0)',
+      confirm: () => this.confirmItem(it.id),
+      discard: () => this.discardItem(it.id),
+    }));
+    const discardedItems = discarded.map(it => ({ ...it, restore: () => this.restoreItem(it.id) }));
     const simBase = 'flex:1;height:44px;border-radius:12px;font-size:13.5px;font-weight:700;cursor:pointer';
     return {
       isDashboard: page === 'dashboard',
@@ -377,11 +489,24 @@ class Component extends DCLogic {
       isContact: page === 'contact',
       isKeywords: page === 'keywords',
       isPublications: page === 'publications',
+      isClassification: page === 'classification',
       crumbTitle: titles[page] || titles.dashboard,
       styleNavInteressados: this.navBtn(navInteressados),
       styleNavContatos: this.navBtn(navContatos),
       styleNavPublicacoes: this.navBtn(navPublicacoes),
       styleNavPalavras: this.navBtn(navPalavras),
+      styleNavClassificacao: this.navBtn(navClassificacao),
+      waitingCount,
+      waitingLabel: `${waitingCount} aguardando revisão`,
+      todayLabel: new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' }).toUpperCase(),
+      visibleItems,
+      discardedItems,
+      discardedCount: discarded.length,
+      hasNoDiscarded: discarded.length === 0,
+      showDiscarded: this.state.showDiscarded,
+      discardedBtnLabel: this.state.showDiscarded ? 'Ocultar descartados' : `Ver descartados (${discarded.length})`,
+      toggleDiscarded: () => this.toggleDiscarded(),
+      goClassification: () => this.setState({ page: 'classification' }),
       styleSim: `${simBase};border:1px solid #101012;background:${this.state.contactDone ? '#101012' : '#fff'};color:${this.state.contactDone ? '#fff' : '#101012'}`,
       styleNao: `${simBase};border:1px solid #e4e3df;background:${!this.state.contactDone ? '#101012' : '#fff'};color:${!this.state.contactDone ? '#fff' : '#55565c'}`,
       goDashboard: () => this.setState({ page: 'dashboard' }),
