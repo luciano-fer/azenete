@@ -1,343 +1,498 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Azenete Carvalho — Cruzeiros &amp; Viagens</title>
-<meta name="description" content="Azenete Carvalho, criadora de conteúdo de viagens. Canais oficiais de contato.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
-<script data-goatcounter="https://azenete.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<style>
-  :root{
-    --ceu:#EFF8FD;
-    --turquesa:#12B5C9;
-    --azul:#0A6ECD;
-    --coral:#FF6B57;
-    --rosa:#F4437A;
-    --sol:#FFB648;
-    --tinta:#0B3552;
-    --suave:#4A6E86;
-    --branco:#FFFFFF;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html,body{height:100%;}
-  body{
-    font-family:'Figtree',sans-serif;
-    color:var(--tinta);
-    background:
-      radial-gradient(42rem 26rem at 6% 10%,rgba(255,182,72,.4) 0%,transparent 62%),
-      radial-gradient(46rem 28rem at 94% 6%,rgba(18,181,201,.38) 0%,transparent 62%),
-      radial-gradient(44rem 28rem at 88% 94%,rgba(244,67,122,.32) 0%,transparent 62%),
-      radial-gradient(40rem 24rem at 8% 92%,rgba(10,110,205,.3) 0%,transparent 62%),
-      radial-gradient(30rem 20rem at 50% 50%,rgba(143,233,245,.22) 0%,transparent 70%),
-      #FDFBF8;
-    display:grid;
-    place-items:center;
-    padding:clamp(.8rem,2.5vh,2rem);
-    overflow:hidden;
-  }
-  a:focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:8px;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Azenete Carvalho — conteúdo de viagens, cruzeiros e experiências para colecionar momentos.">
+  <title>Azenete Carvalho | Viajando e colecionando momentos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+ :root {
+  --ink: #123247;
+  --ink-soft: #58727d;
+  --cream: #fbf7f0;
+  --paper: #fffdf9;
+  --teal: #168d8a;
+  --teal-dark: #0d686a;
+  --coral: #e7775d;
+  --sun: #f5c46a;
+  --line: rgba(18, 50, 71, .14);
+  --shadow: 0 22px 60px rgba(28, 71, 83, .14);
+  --radius-xl: 34px;
+  --ease: cubic-bezier(.22, .8, .25, 1);
+}
 
-  .cartao{
-    display:grid;
-    grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
-    width:min(60rem,100%);
-    max-height:min(92svh,44rem);
-    background:linear-gradient(180deg,#FFFFFF,#FBFDFE);
-    border-radius:34px;
-    box-shadow:
-      0 34px 80px rgba(11,78,143,.22),
-      inset 0 2px 0 rgba(255,255,255,.9);
-    overflow:hidden;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  color: var(--ink);
+  background: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.5;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid var(--coral); outline-offset: 5px; border-radius: 5px; }
+.page-shell { overflow: hidden; }
+.site-header, main, .site-footer { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+.site-header { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: inline-flex; align-items: center; gap: 11px; }
+.brand-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--teal); color: white; font-size: .78rem; font-weight: 700; letter-spacing: .04em; }
+.brand-name { font-size: .82rem; line-height: .98; letter-spacing: .07em; text-transform: uppercase; }
+.brand-name strong { font-size: 1.02rem; letter-spacing: -.02em; text-transform: none; }
+.top-nav { display: flex; align-items: center; gap: 30px; color: var(--ink-soft); font-size: .82rem; font-weight: 600; }
+.top-nav a { transition: color .2s ease; }
+.top-nav a:hover { color: var(--teal); }
+.top-nav .nav-cta { padding: 11px 18px; border: 1px solid var(--ink); border-radius: 999px; color: var(--ink); }
+.top-nav .nav-cta:hover { background: var(--ink); color: white; }
+
+.hero { display: grid; grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr); align-items: center; gap: clamp(48px, 8vw, 120px); min-height: 640px; padding: 56px 0 92px; }
+.hero-copy { position: relative; z-index: 1; }
+.eyebrow, .section-kicker, .official-label { color: var(--teal); font-size: .72rem; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
+.eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 24px; }
+.eyebrow span { width: 30px; height: 2px; background: var(--coral); }
+h1, h2 { font-family: "Playfair Display", Georgia, serif; font-weight: 700; letter-spacing: -.045em; line-height: .98; }
+h1 { max-width: 630px; font-size: clamp(3.8rem, 7.5vw, 7rem); }
+h1 em { color: var(--coral); font-style: normal; }
+.hero-text { max-width: 440px; margin-top: 28px; color: var(--ink-soft); font-size: 1.07rem; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 23px; margin-top: 34px; }
+.button { display: inline-flex; align-items: center; gap: 16px; min-height: 50px; padding: 0 21px; border-radius: 999px; font-size: .82rem; font-weight: 700; transition: transform .2s var(--ease), box-shadow .2s ease, background .2s ease; }
+.button:hover { transform: translateY(-3px); }
+.button span { font-size: 1.1rem; }
+.button-primary { color: white; background: var(--teal); box-shadow: 0 12px 25px rgba(22, 141, 138, .25); }
+.button-primary:hover { background: var(--teal-dark); box-shadow: 0 16px 30px rgba(22, 141, 138, .3); }
+.text-link, .arrow-link { color: var(--ink); font-size: .82rem; font-weight: 700; }
+.text-link span, .arrow-link span { margin-left: 7px; color: var(--coral); font-size: 1.2rem; }
+.hero-proof { display: flex; align-items: center; gap: 14px; margin-top: 48px; color: var(--ink-soft); font-size: .74rem; }
+.hero-proof strong { color: var(--ink); }
+.hero-proof i { width: 4px; height: 4px; border-radius: 50%; background: var(--sun); }
+
+.hero-visual { position: relative; min-height: 520px; }
+.sun-disc { position: absolute; top: 3%; right: 4%; width: 55%; aspect-ratio: 1; border-radius: 50%; background: var(--sun); opacity: .58; filter: blur(1px); }
+.image-frame { position: absolute; inset: 8% 0 0 12%; overflow: hidden; border-radius: 48% 48% 22px 22px; box-shadow: var(--shadow); transform: rotate(2deg); }
+.image-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12, 86, 98, .02), rgba(12, 50, 71, .26)); }
+.image-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.image-note { position: absolute; left: 0; bottom: 10%; display: flex; align-items: center; gap: 9px; max-width: 180px; padding: 14px 16px; color: white; background: var(--ink); font-family: "Playfair Display", serif; font-size: .95rem; line-height: 1.08; box-shadow: 0 15px 28px rgba(18, 50, 71, .2); }
+.image-note span { color: var(--sun); }
+.visual-stamp { position: absolute; top: 15%; right: -3%; display: grid; place-items: center; width: 105px; height: 105px; border: 1px solid var(--ink); border-radius: 50%; color: var(--ink); font-size: .7rem; font-weight: 700; letter-spacing: .14em; line-height: 1.4; text-align: center; text-transform: uppercase; transform: rotate(10deg); }
+.visual-stamp small { font-family: "Playfair Display", serif; font-size: .92rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
+
+.official-band { margin: 8px 0 112px; padding: 15px 0 0; border-top: 1px solid var(--line); }
+.official-label { display: flex; align-items: center; gap: 9px; margin-bottom: 28px; }
+.label-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--coral); }
+.official-content { display: grid; grid-template-columns: 1.12fr .88fr; gap: 70px; padding: 39px 46px; border-radius: var(--radius-xl); background: var(--teal); color: white; box-shadow: var(--shadow); }
+.official-content .section-kicker { color: var(--sun); }
+.official-content h2 { max-width: 620px; margin-top: 12px; font-size: clamp(2rem, 4vw, 3.7rem); }
+.official-content h2 strong { color: var(--sun); font-weight: inherit; }
+.official-side { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 22px; }
+.official-side p { color: rgba(255,255,255,.82); font-size: .95rem; }
+.button-light { color: var(--ink); background: var(--sun); }
+.button-light:hover { background: #ffd384; }
+
+.content-grid { display: grid; grid-template-columns: .88fr 1.12fr; gap: 70px; padding-bottom: 112px; }
+.content-grid h2 { max-width: 410px; margin-top: 12px; font-size: clamp(2.5rem, 4.5vw, 4.35rem); }
+.section-body { align-self: end; max-width: 470px; color: var(--ink-soft); font-size: 1.08rem; }
+.arrow-link { display: inline-block; margin-top: 28px; }
+
+.channels { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; padding: 70px 0; border-top: 1px solid var(--line); }
+.channels-heading h2 { margin-top: 10px; font-size: clamp(2.5rem, 4vw, 4rem); }
+.channels-heading > p:last-child { max-width: 290px; margin-top: 16px; color: var(--ink-soft); font-size: .9rem; }
+.channel-list { display: grid; gap: 11px; }
+.channel-card { display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 15px; padding: 13px 17px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.46); transition: transform .2s var(--ease), background .2s ease, border-color .2s ease; }
+.channel-card:hover { border-color: var(--teal); background: white; transform: translateX(5px); }
+.channel-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; color: white; background: var(--coral); font-size: 1rem; }
+.channel-icon.facebook { background: #287be3; font-family: Arial, sans-serif; font-size: 1.35rem; font-weight: 700; }
+.channel-icon.instagram { background: linear-gradient(135deg, #f6c768, #ed5e75 54%, #7355c8); font-size: 1.45rem; }
+.channel-card strong, .channel-card small { display: block; }
+.channel-card strong { font-size: .9rem; }
+.channel-card small { margin-top: 1px; color: var(--ink-soft); font-size: .77rem; }
+.channel-card > b { color: var(--coral); font-size: 1.2rem; }
+.site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 25px 0 32px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: .7rem; }
+.site-footer a { color: var(--teal-dark); font-weight: 700; }
+
+@media (max-width: 900px) {
+  .site-header, main, .site-footer { width: min(100% - 42px, 680px); }
+  .top-nav { gap: 16px; }
+  .top-nav > a:not(.nav-cta) { display: none; }
+  .hero { grid-template-columns: 1fr; gap: 38px; padding-top: 42px; }
+  .hero-copy { order: 1; }
+  .hero-visual { order: 0; min-height: 430px; }
+  .image-frame { inset: 5% 5% 0 15%; }
+  .official-band { margin-bottom: 84px; }
+  .official-content { grid-template-columns: 1fr; gap: 25px; padding: 34px; }
+  .content-grid, .channels { grid-template-columns: 1fr; gap: 30px; }
+  .channels { padding: 60px 0; }
+  .section-body { align-self: auto; }
+}
+
+@media (max-width: 560px) {
+  .site-header, main, .site-footer { width: min(100% - 30px, 440px); }
+  .site-header { min-height: 74px; }
+  .brand-mark { width: 35px; height: 35px; font-size: .7rem; }
+  .brand-name { font-size: .69rem; }
+  .brand-name strong { font-size: .88rem; }
+  .top-nav .nav-cta { padding: 9px 12px; font-size: .68rem; }
+  .hero { min-height: 0; padding: 28px 0 70px; }
+  .hero-visual { min-height: 350px; }
+  .image-frame { inset: 5% 3% 0 8%; border-radius: 43% 43% 17px 17px; }
+  .image-note { bottom: 6%; max-width: 150px; padding: 11px 12px; font-size: .78rem; }
+  .visual-stamp { top: 4%; right: 0; width: 78px; height: 78px; font-size: .5rem; }
+  .visual-stamp small { font-size: .72rem; }
+  h1 { font-size: clamp(3.2rem, 16vw, 4.4rem); }
+  .hero-text { margin-top: 20px; font-size: .96rem; }
+  .hero-actions { align-items: flex-start; flex-direction: column; gap: 17px; margin-top: 25px; }
+  .hero-proof { margin-top: 35px; font-size: .68rem; }
+  .official-band { margin-bottom: 66px; }
+  .official-content { padding: 27px 23px; border-radius: 23px; }
+  .official-content h2 { font-size: 2.25rem; }
+  .official-side p { font-size: .87rem; }
+  .content-grid { padding-bottom: 72px; }
+  .content-grid h2, .channels-heading h2 { font-size: 2.8rem; }
+  .channel-card { grid-template-columns: 38px 1fr auto; gap: 10px; padding: 11px; }
+  .channel-icon { width: 35px; height: 35px; }
+  .channel-card small { font-size: .68rem; }
+  .site-footer { flex-direction: column; padding-bottom: 24px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy { animation: rise .7s var(--ease) both; }
+  .hero-visual { animation: rise .8s .08s var(--ease) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Revisão 2: topo mais compacto e bloco Saatch alinhado à identidade da agência */
+.site-header { min-height: 72px; }
+.hero { min-height: 560px; padding-top: 24px; padding-bottom: 70px; }
+.official-content { background: #173b59; border: 1px solid rgba(255,255,255,.18); position: relative; overflow: hidden; }
+.official-content::before { content: ""; position: absolute; width: 260px; height: 260px; right: -100px; top: -110px; border-radius: 50%; background: #f2c75c; opacity: .95; }
+.official-content::after { content: "✦"; position: absolute; right: 35px; top: 24px; color: #173b59; font-size: 3.1rem; transform: rotate(14deg); }
+.official-main, .official-side { position: relative; z-index: 1; }
+.saatch-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 25px; color: #f2c75c; font-size: 1.15rem; font-weight: 700; letter-spacing: .16em; line-height: .95; }
+.saatch-brand img { width: 47px; height: 47px; object-fit: contain; border-radius: 10px; background: white; }
+.saatch-brand small { color: white; font-size: .44rem; letter-spacing: .08em; }
+.official-content .section-kicker { color: #f2c75c; }
+.official-description { max-width: 550px; margin: 21px 0 22px; color: rgba(255,255,255,.8); font-size: .93rem; }
+.official-side { align-self: stretch; padding: 18px 0 0 25px; border-left: 1px solid rgba(255,255,255,.18); }
+.contact-title { margin-bottom: 12px; color: #f2c75c; font-size: .72rem; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+.saatch-contacts { display: grid; gap: 7px; width: 100%; }
+.saatch-contacts a { display: flex; align-items: center; gap: 10px; padding: 7px 0; color: white; border-bottom: 1px solid rgba(255,255,255,.13); transition: transform .2s ease, color .2s ease; }
+.saatch-contacts a:hover { color: #f2c75c; transform: translateX(4px); }
+.contact-symbol { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid rgba(255,255,255,.48); border-radius: 50%; color: #f2c75c; font-size: .78rem; }
+.saatch-contacts strong, .saatch-contacts small { display: block; }
+.saatch-contacts strong { font-size: .78rem; }
+.saatch-contacts small { color: rgba(255,255,255,.69); font-size: .69rem; }
+.promo-link { display: flex; align-items: center; gap: 8px; margin-top: 16px; padding: 11px 12px; border: 1px solid #f2c75c; border-radius: 8px; color: #173b59; background: #f2c75c; font-size: .72rem; font-weight: 700; }
+.promo-link span { font-size: 1rem; }
+.promo-link b { margin-left: auto; font-size: 1rem; }
+.promo-link:hover { background: #ffd979; }
+.channel-trigger { width: 100%; border: 1px solid var(--line); font: inherit; text-align: left; cursor: pointer; }
+.channel-trigger:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
+.modal-backdrop[hidden], .thank-you[hidden] { display: none; }
+.modal-backdrop { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; padding: 20px; background: rgba(18,50,71,.58); backdrop-filter: blur(7px); }
+.modal-dialog { position: relative; width: min(100%, 470px); max-height: min(700px, 92vh); overflow: auto; padding: 34px; border-radius: 24px; background: var(--paper); box-shadow: 0 25px 80px rgba(18,50,71,.3); }
+.modal-close { position: absolute; top: 14px; right: 15px; width: 34px; height: 34px; border: 0; border-radius: 50%; color: var(--ink); background: #edf5f3; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.modal-close:hover { background: #d5ebe6; }
+.modal-dialog h2 { margin-top: 8px; font-size: 2.5rem; }
+.modal-subtitle { margin: 11px 0 22px; color: var(--ink-soft); font-size: .88rem; }
+.modal-dialog form { display: grid; gap: 14px; }
+.modal-dialog label { color: var(--ink-soft); font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.modal-dialog input:not(.honeypot), .modal-dialog textarea { display: block; width: 100%; margin-top: 6px; padding: 12px 13px; border: 1px solid #d9e4e2; border-radius: 10px; color: var(--ink); background: white; font: 400 .93rem "DM Sans", sans-serif; letter-spacing: 0; text-transform: none; }
+.modal-dialog input:focus, .modal-dialog textarea:focus { outline: 3px solid rgba(22,141,138,.18); border-color: var(--teal); }
+.modal-dialog textarea { resize: vertical; }
+.honeypot { position: absolute; left: -9999px; opacity: 0; }
+.form-submit { border: 0; cursor: pointer; justify-content: center; }
+.contact-frame { position: absolute; width: 1px; height: 1px; opacity: 0; border: 0; }
+.thank-you { padding: 28px 0 10px; text-align: center; }
+.thank-icon { display: grid; place-items: center; width: 54px; height: 54px; margin: 0 auto 15px; border-radius: 50%; color: white; background: var(--teal); font-size: 1.7rem; }
+.thank-you h3 { font-family: "Playfair Display", Georgia, serif; font-size: 2rem; }
+.thank-you p { margin: 10px auto; max-width: 320px; color: var(--ink-soft); font-size: .9rem; }
+.thank-you small { color: var(--teal); font-size: .74rem; font-weight: 700; }
+@media (max-width: 900px) {
+  .hero { min-height: 0; padding-top: 22px; }
+  .official-side { padding: 24px 0 0; border-top: 1px solid rgba(255,255,255,.18); border-left: 0; }
+}
+@media (max-width: 560px) {
+  .site-header { min-height: 68px; }
+  .hero { padding-top: 17px; }
+  .official-content::after { right: 18px; top: 22px; font-size: 2.2rem; }
+  .saatch-brand { margin-bottom: 20px; }
+  .official-content h2 { font-size: 2.15rem; }
+  .modal-dialog { padding: 29px 20px 22px; }
+}
+
+/* Revisão 3: entrevistas e logotipo oficial */
+.hero-text strong { color: var(--ink); font-weight: 700; }
+.saatch-brand { margin-bottom: 25px; }
+.saatch-brand img { width: min(235px, 78%); height: auto; object-fit: contain; border-radius: 0; background: transparent; }
+.interviews { padding: 72px 0 110px; border-top: 1px solid var(--line); }
+.interviews-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 28px; }
+.interviews-heading h2 { margin-top: 10px; font-size: clamp(2.8rem, 5vw, 4.7rem); }
+.interviews-heading > p { max-width: 325px; color: var(--ink-soft); font-size: .92rem; }
+.video-grid { display: grid; grid-template-columns: 1.78fr 1.78fr; gap: 22px; }
+.video-card { min-width: 0; }
+.video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 18px; background: #173b59; box-shadow: 0 16px 34px rgba(18,50,71,.13); }
+.video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+.video-placeholder { display: grid; place-items: center; border: 1px dashed rgba(255,255,255,.4); background: linear-gradient(135deg, #173b59, #236879); }
+.placeholder-content { display: grid; place-items: center; gap: 8px; color: white; text-align: center; }
+.placeholder-play { display: grid; place-items: center; width: 54px; height: 54px; padding-left: 3px; border-radius: 50%; color: #173b59; background: #f2c75c; font-size: 1.15rem; }
+.placeholder-content p { font-family: "Playfair Display", Georgia, serif; font-size: 1.4rem; }
+.placeholder-content small { color: rgba(255,255,255,.72); font-size: .72rem; }
+.video-caption { display: flex; align-items: flex-start; gap: 12px; padding-top: 14px; }
+.video-caption > span { color: var(--coral); font-size: .72rem; font-weight: 700; letter-spacing: .1em; }
+.video-caption h3 { font-family: "Playfair Display", Georgia, serif; font-size: 1.35rem; line-height: 1.05; }
+.video-caption p { margin-top: 4px; color: var(--ink-soft); font-size: .72rem; }
+@media (max-width: 900px) {
+  .interviews { padding: 60px 0 84px; }
+  .interviews-heading { align-items: start; flex-direction: column; gap: 16px; }
+  .video-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 560px) {
+  .interviews { padding: 48px 0 68px; }
+  .interviews-heading h2 { font-size: 3rem; }
+  .video-frame { border-radius: 14px; }
+  .video-caption h3 { font-size: 1.22rem; }
+}
+
+
+  /* Botão de área interna Saatch */
+  .channel-card-saatch { background: rgba(244,183,49,.08); border-color: rgba(244,183,49,.35); }
+  .channel-card-saatch:hover { border-color: #f4b731; background: rgba(244,183,49,.14); }
+  .channel-card-saatch strong { color: #173b59; }
+  .saatch-icon { background: #173b59; font-size: .9rem; }
+  /* Trava o scroll quando modal aberto */
+  body.modal-is-open { overflow: hidden; }
+
+
+  .top-nav .nav-contact {
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    background: none;
+    color: var(--ink);
+    font: inherit;
+    font-size: .82rem;
+    font-weight: 600;
+    padding: 11px 18px;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+  }
+  .top-nav .nav-contact:hover { background: var(--ink); color: white; }
+  @media (max-width: 900px) {
+    .top-nav .nav-contact { padding: 9px 12px; font-size: .68rem; }
   }
 
-  /* ===== texto ===== */
-  .info{
-    padding:clamp(1.6rem,4.5vh,3.2rem) clamp(1.5rem,4vw,3rem);
-    display:flex;flex-direction:column;justify-content:center;gap:clamp(.9rem,2.4vh,1.4rem);
-    min-width:0;
-  }
-  .info .ola{
-    font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  }
-  .info .ola .grad{
-    background:linear-gradient(90deg,var(--azul),var(--turquesa) 55%,var(--coral));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .info h1{
-    font-family:'Bricolage Grotesque',sans-serif;
-    font-weight:800;
-    font-size:clamp(2rem,5.2vw,3.4rem);
-    line-height:1.02;letter-spacing:-.015em;
-  }
-  .info .frase{
-    font-size:clamp(.95rem,1.6vw,1.08rem);
-    color:var(--suave);
-    max-width:24rem;
-  }
-  .info .frase b{color:var(--tinta);font-weight:600;}
+  /* Ícones SVG nos channel-cards */
+  .channel-icon-svg { background: none; overflow: visible; }
+  .channel-icon-svg svg { width: 38px; height: 38px; }
+  .channel-icon-svg svg rect { rx: 12px; }
 
-  .acoes{display:flex;flex-direction:column;gap:.85rem;margin-top:.2rem;}
-  .acao{
-    display:flex;align-items:center;gap:.95rem;
-    text-decoration:none;
-    font-weight:600;font-size:.98rem;
-    color:var(--tinta);
-    background:linear-gradient(180deg,#FFFFFF,#F4FAFD);
-    border:1px solid #EAF2F8;
-    border-radius:22px;
-    padding:.85rem 1.1rem;
-    box-shadow:
-      0 12px 26px rgba(11,78,143,.13),
-      inset 0 1.5px 0 rgba(255,255,255,.95),
-      inset 0 -4px 8px rgba(11,78,143,.05);
-    transition:transform .2s,box-shadow .2s;
-  }
-  .acao:hover{
-    transform:translateY(-3px);
-    box-shadow:
-      0 18px 36px rgba(11,78,143,.19),
-      inset 0 1.5px 0 rgba(255,255,255,.95),
-      inset 0 -4px 8px rgba(11,78,143,.05);
-  }
-  .acao .ic{
-    width:2.6rem;height:2.6rem;flex:none;
-    border-radius:50%;
-    display:grid;place-items:center;
-    color:var(--branco);
-    position:relative;
-    overflow:hidden;
-  }
-  .acao .ic::after{ /* brilho de vidro na moeda */
-    content:"";
-    position:absolute;left:12%;top:8%;right:12%;height:42%;
-    border-radius:50%;
-    background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0));
-  }
-  .acao .ic svg{width:1.3rem;height:1.3rem;fill:currentColor;position:relative;z-index:1;}
-  /* gradiente oficial do Instagram */
-  .acao.insta .ic{
-    background:radial-gradient(circle at 30% 110%,#FDF497 0%,#FDF497 5%,#FD5949 45%,#D6249F 60%,#285AEB 90%);
-    box-shadow:0 7px 16px rgba(214,36,159,.45);
-  }
-  /* azul oficial do Facebook */
-  .acao.face .ic{
-    background:#1877F2;
-    box-shadow:0 7px 16px rgba(24,119,242,.45);
-  }
-  .acao.mail .ic{
-    background:linear-gradient(135deg,var(--turquesa),var(--azul));
-    box-shadow:0 7px 16px rgba(10,110,205,.4);
-  }
-  .acao small{
-    display:block;font-weight:400;font-size:.74rem;color:var(--suave);
-    line-height:1.15;
-  }
-  .selo{
-    font-size:.7rem;color:var(--suave);
-    letter-spacing:.06em;
-  }
-  .selo b{color:var(--tinta);font-weight:600;}
+  /* Ícones SVG nos saatch-contacts */
+  .contact-symbol svg { width: 28px; height: 28px; border-radius: 8px; display: block; }
+  .contact-symbol { border: none; background: none; width: auto; height: auto; border-radius: 0; }
 
-  /* ===== foto ===== */
-  .foto{
-    position:relative;
-    min-height:100%;
-    min-width:0;
-  }
-  .foto img{
-    position:absolute;inset:0;
-    width:100%;height:100%;
-    object-fit:cover;object-position:center 22%;
-  }
-  .foto::after{ /* onda que invade a foto */
-    content:"";
-    position:absolute;left:-1px;top:0;bottom:0;width:3.4rem;
-    background:radial-gradient(2.2rem 50% at 0% 50%,var(--branco) 62%,transparent 63%) left center/100% 22% repeat-y;
-  }
-  .foto .badge{
-    position:absolute;left:50%;bottom:1rem;transform:translateX(-50%);
-    white-space:nowrap;
-    font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--branco);
-    background:rgba(11,53,82,.5);
-    backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,.4);
-    padding:.5rem 1rem;border-radius:999px;
-  }
-
-  @media (prefers-reduced-motion:no-preference){
-    .cartao{animation:chegar .8s cubic-bezier(.2,.7,.3,1) both;}
-    @keyframes chegar{from{opacity:0;transform:translateY(22px) scale(.985);}to{opacity:1;transform:none;}}
-  }
-
-  /* ===== MODAL (checkbox hack, sem JS) ===== */
-  .modal-chave{position:absolute;opacity:0;pointer-events:none;}
-  .modal-fundo{
-    position:fixed;inset:0;z-index:60;
-    display:grid;place-items:center;
-    padding:1rem;
-    background:rgba(11,53,82,.45);
-    backdrop-filter:blur(7px);
-    opacity:0;visibility:hidden;
-    transition:opacity .3s,visibility .3s;
-  }
-  .modal-chave:checked ~ .modal-fundo{opacity:1;visibility:visible;}
-  .modal-fechar-area{position:absolute;inset:0;cursor:pointer;}
-  .modal{
-    position:relative;
-    width:min(26rem,100%);
-    max-height:92svh;
-    overflow:auto;
-    background:linear-gradient(180deg,#FFFFFF,#F7FBFE);
-    border-radius:26px;
-    padding:1.8rem 1.7rem 1.7rem;
-    box-shadow:0 30px 70px rgba(11,53,82,.35),inset 0 2px 0 rgba(255,255,255,.9);
-    transform:translateY(16px) scale(.97);
-    transition:transform .3s cubic-bezier(.2,.7,.3,1);
-  }
-  .modal-chave:checked ~ .modal-fundo .modal{transform:none;}
-  .modal-x{
-    position:absolute;top:.9rem;right:.9rem;
-    width:2.1rem;height:2.1rem;
-    display:grid;place-items:center;
-    border-radius:50%;
-    background:var(--ceu);
-    color:var(--suave);
-    font-size:.95rem;font-weight:700;
-    cursor:pointer;
-    transition:background .2s,color .2s;
-  }
-  .modal-x:hover{background:#FFE3EA;color:var(--rosa);}
-  .modal h2{
-    font-family:'Bricolage Grotesque',sans-serif;
-    font-weight:800;font-size:1.45rem;letter-spacing:-.01em;
-  }
-  .modal-sub{font-size:.86rem;color:var(--suave);margin:.3rem 0 1.2rem;}
-  .campo{margin-bottom:.9rem;}
-  .campo label{
-    display:block;
-    font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--suave);
-    margin-bottom:.35rem;
-  }
-  .campo input,.campo textarea{
-    width:100%;
-    font-family:'Figtree',sans-serif;font-size:.95rem;
-    color:var(--tinta);
-    background:var(--branco);
-    border:1.5px solid #DCEBF4;
-    border-radius:14px;
-    padding:.75rem .9rem;
-    transition:border-color .2s,box-shadow .2s;
-    resize:vertical;
-  }
-  .campo input:focus,.campo textarea:focus{
-    outline:none;
-    border-color:var(--turquesa);
-    box-shadow:0 0 0 4px rgba(18,181,201,.18);
-  }
-  .enviar{
-    width:100%;
-    font-family:'Figtree',sans-serif;
-    font-weight:700;font-size:1rem;
-    color:var(--branco);
-    background:linear-gradient(90deg,var(--coral),var(--rosa));
-    border:none;border-radius:999px;
-    padding:.95rem;
-    cursor:pointer;
-    box-shadow:0 12px 26px rgba(244,67,122,.4);
-    transition:transform .2s,box-shadow .2s;
-  }
-  .enviar:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(244,67,122,.5);}
-  .acao.mail{cursor:pointer;}
-
-  /* ===== mobile: foto no topo, tudo numa tela ===== */
-  @media (max-width:700px){
-    body{padding:.7rem;}
-    .cartao{
-      grid-template-columns:1fr;
-      grid-template-rows:minmax(0,42svh) auto;
-      max-height:96svh;
-    }
-    .foto{order:-1;}
-    .foto::after{
-      left:0;right:0;top:auto;bottom:-1px;width:auto;height:2.6rem;
-      background:radial-gradient(50% 1.8rem at 50% 100%,var(--branco) 62%,transparent 63%) center bottom/22% 100% repeat-x;
-    }
-    .foto img{object-position:center 18%;}
-    .foto .badge{display:none;}
-    .info{padding:1.2rem 1.3rem 1.4rem;gap:.7rem;}
-    .info h1{font-size:1.75rem;}
-    .info .frase{font-size:.9rem;}
-    .acao{padding:.7rem .9rem;font-size:.92rem;}
-    .acao .ic{width:2rem;height:2rem;border-radius:10px;}
-  }
-</style>
+  .footer-right { display: flex; align-items: center; gap: 18px; }
+  .footer-area { color: var(--ink-soft) !important; font-weight: 400 !important; opacity: .45; transition: opacity .2s; }
+  .footer-area:hover { opacity: 1; }
+  </style>
 </head>
 <body>
-
-<main class="cartao">
-  <section class="info">
-    <span class="ola"><span class="grad">Viajando e colecionando momentos</span> 🌎✨</span>
-    <h1>Azenete Carvalho</h1>
-    <p class="frase">Criadora de conteúdo de viagens. <b>Viajar não tem idade — tem vontade.</b></p>
-
-    <nav class="acoes" aria-label="Contatos oficiais">
-      <a class="acao insta" href="https://www.instagram.com/azenete.carvalho" target="_blank" rel="noopener">
-        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 3.6a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8zm0 2a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm5.6-2.5a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg></span>
-        <span>@azenete.carvalho<small>Instagram — conteúdo diário</small></span>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Azenete Carvalho — início">
+        <span class="brand-mark">AC</span>
+        <span class="brand-name">Azenete<br><strong>Carvalho</strong></span>
       </a>
-      <label class="acao mail" for="abrir-contato" role="button" tabindex="0">
-        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.5l-8 5-8-5V6h16zM4 18V8.9l7.5 4.7c.3.2.7.2 1 0L20 8.9V18H4z"/></svg></span>
-        <span>Enviar mensagem<small>Parcerias &amp; imprensa — contato@azenetecarvalho.com.br</small></span>
-      </label>
-      <a class="acao face" href="https://www.facebook.com/share/17AZVRUCJy/" target="_blank" rel="noopener">
-        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></span>
-        <span>Facebook<small>Comunidade oficial</small></span>
-      </a>
-    </nav>
+      <nav class="top-nav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#canais">Canais oficiais</a>
+        <button class="nav-cta nav-contact" type="button" data-modal-open>Entrar em contato</button>
+        <a class="nav-cta" href="https://saatchturismo.com.br/" target="_blank" rel="noopener">Planeje sua viagem</a>
+      </nav>
+    </header>
 
-    <p class="selo"><b>Canais oficiais.</b> Propostas fora destes contatos não são autorizadas.</p>
-  </section>
+    <main id="inicio">
+      <section class="hero" aria-labelledby="titulo-principal">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Viajando e colecionando momentos</p>
+          <h1 id="titulo-principal">Viajar não tem idade.<br><em>Tem vontade.</em></h1>
+          <p class="hero-text">Eu sou <strong>Dona Azenete</strong>, criadora de conteúdo de viagens, apaixonada por cruzeiros, descobertas e histórias que ficam para sempre.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://www.instagram.com/azenete.carvalho" target="_blank" rel="noopener">Acompanhe no Instagram <span>↗</span></a>
+            <a class="text-link" href="#agencia">Conheça a agência oficial <span>↓</span></a>
+          </div>
+          <div class="hero-proof" aria-label="Informações da Azenete">
+            <span><strong>Conteúdo</strong> diário</span>
+            <i></i>
+            <span><strong>Viagens</strong> com propósito</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="sun-disc" aria-hidden="true"></div>
+          <div class="image-frame">
+            <img src="azenete.jpg" alt="Azenete Carvalho em uma experiência de viagem diante de um navio de cruzeiro">
+          </div>
+          <div class="image-note"><span>✦</span> Momentos que merecem ser vividos</div>
+        </div>
+      </section>
 
-  <figure class="foto">
-    <img src="azenete.jpg" alt="Azenete Carvalho de azul na popa do navio, com a esteira do cruzeiro ao fundo">
-    <figcaption class="badge">Vista no Mais Você · Globo</figcaption>
-  </figure>
-</main>
+      <section class="official-band" id="agencia" aria-labelledby="titulo-agencia">
+        <div class="official-label"><span class="label-dot"></span> Parceria oficial</div>
+        <div class="official-content">
+          <div class="official-main">
+            <div class="saatch-brand"><img src="saatch-official.png" alt="Saatch Turismo e Experiências"></div>
+            <p class="section-kicker">Sua próxima experiência começa aqui</p>
+            <h2 id="titulo-agencia">A agência oficial da Azenete é a <strong>@saatch.turismo</strong></h2>
+            <p class="official-description">A Saatch Turismo e Experiências cuida de cada etapa da sua viagem, com atendimento personalizado antes, durante e depois do embarque.</p>
+            <a class="button button-light" href="https://saatchturismo.com.br/" target="_blank" rel="noopener">Conheça a Saatch Turismo <span>↗</span></a>
+          </div>
+          <div class="official-side">
+            <p class="contact-title">Fale com a Saatch</p>
+            <div class="saatch-contacts">
+              <a href="https://www.instagram.com/saatch.turismo/" target="_blank" rel="noopener"><span class="contact-symbol"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ig-g1" cx="30%" cy="107%" r="140%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285aeb"/></radialGradient></defs><rect width="24" height="24" rx="6" fill="url(#ig-g1)"/><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9A3.1 3.1 0 1 1 12 8.9a3.1 3.1 0 0 1 0 6.2z" fill="#fff"/><circle cx="16.9" cy="7.1" r="1.12" fill="#fff"/></svg></span><span><strong>Instagram</strong><small>@saatch.turismo</small></span></a>
+              <a href="tel:+551131950750"><span class="contact-symbol"><svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#4a6e86"/><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="#fff"/></svg></span><span><strong>Telefone</strong><small>(11) 3195-0750</small></span></a>
+              <a href="https://api.whatsapp.com/send?phone=5511930730655" target="_blank" rel="noopener"><span class="contact-symbol"><svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#25D366"/><path d="M12 4a8 8 0 0 0-6.93 11.97L4 20l4.15-1.08A8 8 0 1 0 12 4zm0 14.5a6.42 6.42 0 0 1-3.27-.9l-.23-.14-2.46.64.66-2.4-.15-.25A6.5 6.5 0 1 1 12 18.5zm3.56-4.87c-.19-.1-1.14-.56-1.32-.63-.17-.06-.3-.1-.42.1-.13.19-.49.63-.6.76-.11.13-.22.14-.41.05a5.27 5.27 0 0 1-1.55-.96 5.8 5.8 0 0 1-1.07-1.34c-.11-.2-.01-.3.08-.4l.27-.32c.09-.1.12-.19.18-.32.06-.13.03-.24-.02-.34-.05-.1-.42-1.02-.58-1.4-.15-.36-.31-.31-.42-.32h-.36c-.13 0-.33.05-.5.24-.17.2-.66.64-.66 1.56s.67 1.81.77 1.93c.09.13 1.32 2.01 3.2 2.82.45.19.8.31 1.07.39.45.14.86.12 1.18.07.36-.05 1.14-.47 1.3-.92.16-.45.16-.84.11-.92-.05-.09-.18-.14-.37-.23z" fill="#fff"/></svg></span><span><strong>WhatsApp</strong><small>(11) 93073-0655</small></span></a>
+              <a href="https://www.google.com/maps/place/Saatch+Turismo/@-23.5472459,-46.5598252,17z/" target="_blank" rel="noopener"><span class="contact-symbol"><svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#ea4335"/><path d="M12 3a6 6 0 0 0-6 6c0 4.5 6 12 6 12s6-7.5 6-12a6 6 0 0 0-6-6zm0 8.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#fff"/></svg></span><span><strong>Endereço</strong><small>Rua Apucarana, 1041 · Tatuapé/SP</small></span></a>
+            </div>
+            <a class="promo-link" href="https://chat.whatsapp.com/EOLBPtOssL374yWEYyH7I1" target="_blank" rel="noopener"><span>✦</span> Entrar no grupo de promoções <b>↗</b></a>
+          </div>
+        </div>
+      </section>
 
-<!-- ===== MODAL DE CONTATO (só HTML/CSS via checkbox) ===== -->
-<input type="checkbox" id="abrir-contato" class="modal-chave" aria-hidden="true">
-<div class="modal-fundo" aria-hidden="true">
-  <label for="abrir-contato" class="modal-fechar-area" aria-label="Fechar formulário"></label>
-  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-form">
-    <label for="abrir-contato" class="modal-x" role="button" tabindex="0" aria-label="Fechar">✕</label>
-    <h2 id="titulo-form">Fale com a Azenete</h2>
-    <p class="modal-sub">Parcerias, imprensa e convites — respondemos pelo e-mail oficial.</p>
-    <form action="https://formsubmit.co/contato@azenetecarvalho.com.br" method="POST">
-      <input type="hidden" name="_subject" value="Contato pelo site — azenetecarvalho.com.br">
-      <input type="hidden" name="_next" value="https://www.azenetecarvalho.com.br/">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-      <div class="campo">
-        <label for="f-nome">Seu nome</label>
-        <input id="f-nome" type="text" name="nome" required autocomplete="name" placeholder="Como podemos te chamar?">
+      <section class="interviews" id="entrevistas" aria-labelledby="titulo-entrevistas">
+        <div class="interviews-heading">
+          <div>
+            <p class="section-kicker">Dona Azenete na mídia</p>
+            <h2 id="titulo-entrevistas">Entrevistas</h2>
+          </div>
+          <p>Histórias de viagem, longevidade e vontade de viver compartilhadas em grandes veículos.</p>
+        </div>
+        <div class="video-grid">
+          <article class="video-card">
+            <div class="video-frame video-frame-youtube">
+              <iframe src="https://www.youtube.com/embed/9ApF3VZUAJg?rel=0" title="Entrevista da Dona Azenete no Mais Você" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="video-caption"><span>01</span><div><h3>Entrevista no Mais Você</h3><p>Rede Globo · entrevista completa</p></div></div>
+          </article>
+          <article class="video-card">
+            <!-- Substitua este espaço pelo iframe ou vídeo do G1 quando o link estiver disponível. -->
+            <div class="video-frame video-placeholder" aria-label="Espaço reservado para a entrevista do G1">
+              <div class="placeholder-content"><span class="placeholder-play">▶</span><p>Entrevista no G1</p><small>Vídeo em breve</small></div>
+            </div>
+            <div class="video-caption"><span>02</span><div><h3>Entrevista no G1</h3><p>G1 · espaço reservado para o vídeo</p></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="channels" id="canais" aria-labelledby="titulo-canais">
+        <div class="channels-heading">
+          <p class="section-kicker">Fale com a Azenete</p>
+          <h2 id="titulo-canais">Canais oficiais</h2>
+          <p>Para parcerias, imprensa e convites, use exclusivamente os contatos abaixo.</p>
+        </div>
+        <div class="channel-list">
+          <a class="channel-card channel-card-saatch" href="https://www.azenetecarvalho.com.br/interessados" rel="noopener">
+            <span class="channel-icon channel-icon-svg"><svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#173b59"/><text x="12" y="17" text-anchor="middle" fill="#f2c75c" font-size="14" font-weight="700" font-family="sans-serif">✦</text></svg></span>
+            <span><strong>Área de interessados</strong><small>Painel interno Saatch · acesso restrito</small></span>
+            <b>↗</b>
+          </a>
+                    <button class="channel-card channel-trigger" type="button" data-modal-open>
+            <span class="channel-icon channel-icon-svg"><svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#12B5C9"/><path d="M4 8l8 5 8-5V6H4v2zm0 2v8h16v-8l-8 5-8-5z" fill="#fff"/></svg></span>
+            <span><strong>Enviar mensagem</strong><small>Parcerias &amp; imprensa · contato@azenetecarvalho.com.br</small></span>
+            <b>↗</b>
+          </button>
+          <a class="channel-card" href="https://www.facebook.com/share/17AZVRUCJy/" target="_blank" rel="noopener">
+            <span class="channel-icon channel-icon-svg"><svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#1877F2"/><path d="M16 8h-2a1 1 0 0 0-1 1v2h3l-.5 3H13v7h-3v-7H8v-3h2V9a4 4 0 0 1 4-4h2v3z" fill="#fff"/></svg></span>
+            <span><strong>Facebook</strong><small>Comunidade oficial</small></span>
+            <b>↗</b>
+          </a>
+          <a class="channel-card" href="https://www.instagram.com/azenete.carvalho" target="_blank" rel="noopener">
+            <span class="channel-icon channel-icon-svg"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ig-g1" cx="30%" cy="107%" r="140%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285aeb"/></radialGradient></defs><rect width="24" height="24" rx="6" fill="url(#ig-g1)"/><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9A3.1 3.1 0 1 1 12 8.9a3.1 3.1 0 0 1 0 6.2z" fill="#fff"/><circle cx="16.9" cy="7.1" r="1.12" fill="#fff"/></svg></span>
+            <span><strong>Instagram</strong><small>@azenete.carvalho</small></span>
+            <b>↗</b>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-backdrop" data-modal hidden>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" data-modal-close aria-label="Fechar formulário">×</button>
+        <p class="section-kicker">Canais oficiais</p>
+        <h2 id="modal-title">Fale com a Azenete</h2>
+        <p class="modal-subtitle">Parcerias, imprensa e convites — sua mensagem será encaminhada pelo e-mail oficial.</p>
+        <form id="contact-form" action="https://formsubmit.co/contato@azenetecarvalho.com.br" method="POST" target="contact-frame">
+          <input type="hidden" name="_subject" value="Contato pelo site — azenetecarvalho.com.br">
+          <input type="hidden" name="_next" value="https://www.azenetecarvalho.com.br/">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off">
+          <label>Seu nome<input type="text" name="nome" required autocomplete="name" placeholder="Como podemos te chamar?"></label>
+          <label>Seu e-mail<input type="email" name="email" required autocomplete="email" placeholder="voce@empresa.com.br"></label>
+          <label>Mensagem<textarea name="mensagem" rows="4" required placeholder="Conte sua proposta ou convite…"></textarea></label>
+          <button class="button button-primary form-submit" type="submit">Enviar mensagem <span>↗</span></button>
+        </form>
+        <div class="thank-you" data-thank-you hidden>
+          <span class="thank-icon">✓</span>
+          <h3>Mensagem enviada.</h3>
+          <p>Obrigada pelo contato. A Azenete ou sua equipe responderá pelo canal oficial.</p>
+          <small>Você será redirecionado em instantes.</small>
+        </div>
+        <iframe name="contact-frame" title="Envio do formulário" class="contact-frame"></iframe>
       </div>
-      <div class="campo">
-        <label for="f-email">Seu e-mail</label>
-        <input id="f-email" type="email" name="email" required autocomplete="email" placeholder="voce@empresa.com.br">
-      </div>
-      <div class="campo">
-        <label for="f-msg">Mensagem</label>
-        <textarea id="f-msg" name="mensagem" rows="4" required placeholder="Conte sua proposta ou convite…"></textarea>
-      </div>
-      <button class="enviar" type="submit">Enviar mensagem ✈️</button>
-    </form>
-  </section>
-</div>
+    </div>
 
+    <footer class="site-footer">
+      <span>© 2026 Azenete Carvalho</span>
+      <span>Canais oficiais. Propostas fora destes contatos não são autorizadas.</span>
+      <span class="footer-right">
+        <a href="https://saatchturismo.com.br/" target="_blank" rel="noopener">Agência oficial: @saatch.turismo</a>
+        <a href="https://www.azenetecarvalho.com.br/interessados" class="footer-area">Área interna</a>
+      </span>
+    </footer>
+  </div>
+
+<script>
+(() => {
+  const modal = document.querySelector('[data-modal]');
+  const openButton = document.querySelector('[data-modal-open]');
+  const closeButton = document.querySelector('[data-modal-close]');
+  const form = document.querySelector('#contact-form');
+  const thankYou = document.querySelector('[data-thank-you]');
+  const firstField = form?.querySelector('input[name="nome"]');
+  let redirectTimer;
+
+  if (!modal || !openButton || !closeButton || !form || !thankYou) return;
+
+  const openModal = () => {
+    modal.hidden = false;
+    document.body.classList.add('modal-is-open');
+    window.setTimeout(() => firstField?.focus(), 30);
+  };
+
+  const closeModal = () => {
+    modal.hidden = true;
+    document.body.classList.remove('modal-is-open');
+    window.clearTimeout(redirectTimer);
+  };
+
+  openButton.addEventListener('click', openModal);
+  closeButton.addEventListener('click', closeModal);
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !modal.hidden) closeModal();
+  });
+
+  form.addEventListener('submit', () => {
+    form.hidden = true;
+    thankYou.hidden = false;
+    redirectTimer = window.setTimeout(() => {
+      window.location.href = 'https://www.azenetecarvalho.com.br/';
+    }, 3200);
+  });
+})();
+
+</script>
 </body>
 </html>
